@@ -8,7 +8,6 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use("/public",express.static(__dirname + "/assets"))
 
 app.get("/",function(req,res) {
-	// console.log("Aditya")
 	db.get("contacts").find().then(function(results){
 		//console.log(results)
 		res.render("showcontacts",{records:results})
