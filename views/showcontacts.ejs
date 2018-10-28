@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">	
+</head>
+<body>
+	<div class="container">
+		<h2 class="text-center">Show All Contacts</h2>
+		<h5 class="text-center"><a href="/add">Add contact</a></h5>
+		
+		<form method="post" action="/search">
+			<div class="form-group">
+				<input type="search" class="form-control"  placeholder="Search.." name="search">
+				<button type="submit" class="btn btn-default">Search</button>
+			</div>
+		</form>
+		
+		<table class="table">
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Mobile</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			<% records.forEach(function(val) {%>
+			<tr>
+				<td><%= val.f_name %></td>
+				<td><%= val.l_name %></td>
+				<td><%= val.mobile %></td>
+				<td><a href="/edit/<%= val._id %>">Edit</a></td>
+				<td><a href="/delete/<%= val._id %>">Delete</a></td>
+			</tr>
+			<% }) %>
+		</table>
+	</div>
+</body>
+</html>
+
